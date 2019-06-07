@@ -8,9 +8,14 @@ const Job = () => (
     <Card
       hoverable
       style={{ width: 200, margin: 50 }}
-      cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+      cover={
+        <img
+          alt="example"
+          src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+        />
+      }
     >
-      <Meta title="Europe Street beat" description="www.instagram.com" />
+      <Meta title="Llevar una cama" description="Avenida España" />
     </Card>
   </Col>
 );
