@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reach/router": "^1.2.1",
     "antd": "^3.19.2",
     "eslint-config-airbnb": "^17.1.0",
     "react": "^16.8.6",
