@@ -1,6 +1,6 @@
-import React from 'react';
-import { Layout, Row, Col, Icon, Avatar, Badge, Menu } from 'antd';
-import { Link } from '@reach/router';
+import React from "react";
+import { Layout, Row, Col, Icon, Avatar, Badge, Menu } from "antd";
+import { Link } from "@reach/router";
 
 const { Header } = Layout;
 
@@ -8,7 +8,7 @@ const MainHeader = () => {
   return (
     <Header
       he
-      style={{ backgroundColor: '#fff', borderBottom: '1px solid #e8e8e8' }}
+      style={{ backgroundColor: "#fff", borderBottom: "1px solid #e8e8e8" }}
     >
       <Row>
         <Col xs={24} sm={16} lg={12}>
@@ -21,14 +21,14 @@ const MainHeader = () => {
           xs={24}
           sm={8}
           lg={12}
-          style={{ display: 'flex', justifyContent: 'flex-end' }}
+          style={{ display: "flex", justifyContent: "flex-end" }}
         >
           <Menu
             theme="white"
             mode="horizontal"
-            defaultSelectedKeys={['1']}
+            defaultSelectedKeys={["1"]}
             style={{
-              lineHeight: '62px'
+              lineHeight: "62px"
             }}
           >
             <Menu.Item key="1">

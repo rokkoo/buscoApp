@@ -1,23 +1,25 @@
-import React from 'react';
-import { Card, Col } from 'antd';
+import React from "react";
+import { Router, Link } from "@reach/router";
+import { Card, Col } from "antd";
 
 const { Meta } = Card;
 
-const Job = () => (
-  <Col md={4} sm={12} xl={5}>
-    <Card
-      hoverable
-      style={{ width: 200, margin: 50 }}
-      cover={
-        <img
-          alt="example"
-          src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-        />
-      }
-    >
-      <Meta title="Llevar una cama" description="Avenida España" />
-    </Card>
-  </Col>
-);
+const Job = ({ data }) => {
+  const { id, title, description, imgSrc } = data;
+  const goTo = `trabajo/${id}`;
+  return (
+    <Col md={12} sm={12} xl={5}>
+      <Link to={goTo} data={data}>
+        <Card
+          hoverable
+          style={{ width: 200, margin: 50 }}
+          cover={<img alt={title} src={imgSrc} />}
+        >
+          <Meta title={title} description={description} />
+        </Card>
+      </Link>
+    </Col>
+  );
+};
 
 export default Job;
