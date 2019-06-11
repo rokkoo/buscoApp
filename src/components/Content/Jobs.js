@@ -56,7 +56,7 @@ const CentralContent = ({ match }) => {
 
   return (
     <Content style={{ padding: '0 50px', marginTop: '15px' }}>
-      Posts {state.length}
+      Posts
       <div style={{ background: '#fff', padding: 24 }}>
         <Row gutter={{ md: 0 }}>
           {state.map(data => data.map((job, i) => <Job key={i} data={job} />))}
