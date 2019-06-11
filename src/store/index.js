@@ -1,9 +1,4 @@
-import React, { useEffect } from 'react';
-import { useActions, useStore } from 'easy-peasy';
-import Job from './Job';
-import { Layout, Row } from 'antd';
-
-const { Content } = Layout;
+import { createStore, thunk, action } from 'easy-peasy';
 
 const Posts = [
   {
@@ -47,23 +42,24 @@ const Posts = [
   }
 ];
 
-const CentralContent = ({ match }) => {
-  const state = useStore(state => state.postsList.list);
-
-  useEffect(() => {
-    // console.log(state);
-  }, [state]);
-
-  return (
-    <Content style={{ padding: '0 50px', marginTop: '15px' }}>
-      Posts {state.length}
-      <div style={{ background: '#fff', padding: 24 }}>
-        <Row gutter={{ md: 0 }}>
-          {state.map(data => data.map((job, i) => <Job key={i} data={job} />))}
-        </Row>
-      </div>
-    </Content>
-  );
+const serverFetch = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(Posts);
+    }, 3000);
+  });
 };
+const stores = createStore({
+  postsList: {
+    list: [],
+    loadList: thunk(async (actions, payload) => {
+      const data = await serverFetch();
+      actions.listLoaded(data);
+    }),
+    listLoaded: action((state, payload) => {
+      state.list.push(payload);
+    })
+  }
+});
 
-export default CentralContent;
+export default stores;
