@@ -1,17 +1,5 @@
-import React from "react";
-import { Router } from "@reach/router";
-
 import Jobs from "./Jobs";
-import JobDetail from "./JobDetail";
+import Job from "./Job";
+import JobSkeleton from "./JobSkeleton";
 
-const Main = () => {
-  return (
-    <Router primary={false}>
-      <Jobs path="/" />
-      <JobDetail path="/trabajo/:jobId" />
-      <JobDetail path="/ofertas" />
-    </Router>
-  );
-};
-
-export default Main;
+export { Job, Jobs, JobSkeleton };
