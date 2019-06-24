@@ -13,6 +13,8 @@ import Header from "./components/Header/Header";
 import Content from "./components/Content/Routes";
 import Footer from "./components/Footer";
 
+const s = 56;
+
 const posts = [
   {
     id: 1,
@@ -24,7 +26,7 @@ const posts = [
     date: {
       // UTC Time
       start: 1,
-      finishTime: new Date()
+      finishTime: new Date(`Mon Jun 24 2019 18:${s}:10 GMT+0200`)
     }
   },
   {
@@ -37,7 +39,7 @@ const posts = [
     date: {
       // UTC Time
       start: 1,
-      finishTime: new Date()
+      finishTime: new Date(`Mon Jun 24 2019 18:${s}:20 GMT+0200`)
     }
   },
   {
@@ -50,7 +52,7 @@ const posts = [
     date: {
       // UTC Time
       start: 1,
-      finishTime: new Date()
+      finishTime: new Date(`Mon Jun 24 2019 18:${s}:30 GMT+0200`)
     }
   }
 ];

@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-// import { useActions, useStore } from 'easy-peasy';
 import { useSelector, useStore, useDispatch } from "react-redux";
-// import Job from "./Job";
+
 import { Job, JobSkeleton } from "./";
 import { Layout, Row, Spin, Col } from "antd";
-import Grid from "antd/lib/card/Grid";
 
 const { Content } = Layout;
 
@@ -13,7 +11,7 @@ const CentralContent = ({ match }) => {
   const { posts } = useSelector(state => state);
 
   useEffect(() => {
-    console.log(posts.length);
+    console.log(posts);
   }, [posts]);
 
   return (

@@ -1,46 +1,18 @@
 import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Router, Link } from "@reach/router";
 import { Card, Col } from "antd";
 import Countdown from "react-countdown-now";
 
 const { Meta } = Card;
 
-const Post = data => {
-  console.log(data);
-  const { id, title, description, imgSrc, price, date } = data;
-  const goTo = `trabajo/${id}`;
-
-  return (
-    <Col md={6} sm={12} xl={5}>
-      <Link to={goTo} data={data}>
-        <Card
-          hoverable
-          style={{ width: 200, margin: 50 }}
-          cover={<img alt={title} src={imgSrc} />}
-        >
-          <Meta title={title} description={description} />
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              color: "#34495e",
-              fontWeight: 600,
-              opacity: "0.7"
-            }}
-          >
-            <div>Precio: {price}</div>
-            <div>{price}</div>
-          </div>
-        </Card>
-      </Link>
-    </Col>
-  );
-};
-
 const Job = ({ data }) => {
   const { id, title, description, imgSrc, price, date } = data;
+  const p = id == 3 ? 0 : 0;
+  const dispatch = useDispatch();
   const { finishTime } = date;
-  finishTime.setSeconds(5);
+
+  console.log(finishTime);
   // const fTime = new Date(finishTime).now();
   const goTo = `trabajo/${id}`;
 
@@ -51,7 +23,12 @@ const Job = ({ data }) => {
   const renderer = ({ hours, minutes, seconds, completed }) => {
     if (completed) {
       // Render a completed state
-      return <div>Finished</div>;
+      dispatch({
+        type: "DELETE_POST",
+        id
+      });
+      console.log(id);
+      return null;
     } else {
       // Render a countdown
       return (
@@ -72,7 +49,7 @@ const Job = ({ data }) => {
                   opacity: "0.7"
                 }}
               >
-                <div>Precio: {price}</div>
+                <div>Precio: {id}</div>
                 <div>
                   {hours}
                   {minutes}:{seconds}
@@ -85,7 +62,7 @@ const Job = ({ data }) => {
     }
   };
 
-  return <Countdown date={Date.now() + 5000} renderer={renderer} />;
+  return <Countdown date={finishTime} renderer={renderer} />;
 };
 
 export default Job;
