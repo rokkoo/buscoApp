@@ -1,4 +1,4 @@
-import { createStore } from "redux";
+import { createStore } from 'redux';
 
 const initial_state = {
   posts: []
@@ -6,12 +6,12 @@ const initial_state = {
 
 const pageData = (state = initial_state, action) => {
   switch (action.type) {
-    case "LOAD_PAGE": {
+    case 'LOAD_PAGE': {
       return { ...state, posts: [...action.posts, ...state.posts] };
     }
-    case "DELETE_POST": {
+    case 'DELETE_POST': {
       const filterPosts = state.posts.filter(({ id }) => id != action.id);
-      console.log("acaba ->", action.id);
+      console.log('acaba ->', filterPosts);
       return { ...state, posts: [...filterPosts] };
     }
     default:

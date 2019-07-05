@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useStore, useDispatch } from "react-redux";
+import React, { useEffect, useState } from 'react';
+import { useSelector, useStore, useDispatch } from 'react-redux';
 
-import { Job, JobSkeleton } from "./";
-import { Layout, Row, Spin, Col } from "antd";
+import { Job, JobSkeleton } from './';
+import { Layout, Row, Spin, Col } from 'antd';
 
 const { Content } = Layout;
 
@@ -11,17 +11,17 @@ const CentralContent = ({ match }) => {
   const { posts } = useSelector(state => state);
 
   useEffect(() => {
-    console.log(posts);
+    // console.log(posts);
   }, [posts]);
 
   return (
-    <Content style={{ padding: "0 50px", marginTop: "15px" }}>
+    <Content style={{ padding: '0 50px', marginTop: '15px' }}>
       Posts
       <div
         style={{
-          display: "grid",
-          justifyContent: "center",
-          background: "#fff",
+          display: 'grid',
+          // justifyContent: 'center',
+          background: '#fff',
           padding: 24
         }}
       >
